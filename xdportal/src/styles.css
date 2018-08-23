@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@font-face{
+    font-family:'JosefinSans-light';
+    src: url(../src/assets/fonts/JosefinSans-Light.ttf)
+}
+@font-face{
+    font-family:'JosefinSans-bold';
+    src: url(../src/assets/fonts/JosefinSans-Bold.ttf)
+}
+@font-face{
+    font-family:'JosefinSans-regular';
+    src: url(../src/assets/fonts/JosefinSans-Regular.ttf)
+}
+@font-face{
+    font-family:'JosefinSans-semibold';
+    src: url(../src/assets/fonts/JosefinSans-Semibold.ttf)
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+}
+
+strong { font-weight: 500; }
+
+a, a:hover, a:focus {
+	color: #b88e4f; text-decoration: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+h1, h2 { margin-top: 10px; font-family: 'Josefin Sans', sans-serif; font-size: 48px; font-weight: 300; color: #555; line-height: 56px; }
+h3 { font-family: 'Josefin Sans', sans-serif; font-size: 32px; font-weight: 300; color: #555; line-height: 40px; }
+
+img { max-width: 100%; }
+
+.medium-paragraph { font-size: 18px; line-height: 34px; }
+
+.colored { color: #b88e4f; }
+
+::-moz-selection { background: #b88e4f; color: #fff; text-shadow: none; }
+::selection { background: #b88e4f; color: #fff; text-shadow: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary{
+    display: block;
+}
+
+
+
+/** Media Query **/
+@media(min-width: 768px){
+    .container {
+		width: 750px;	
+	}
+}
+
+@media (min-width: 992px){
+	.container {
+		width: 970px;
+	}
+}
+
+@media (min-width: 1200){
+	.container {
+		width: 1170px;
+	}
+}
+
