@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+
 @font-face{
     font-family:'JosefinSans-light';
     src: url(../src/assets/fonts/JosefinSans-Light.ttf)
@@ -23,6 +24,10 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
+}
+
+input {
+	outline: none;
 }
 
 strong { font-weight: 500; }

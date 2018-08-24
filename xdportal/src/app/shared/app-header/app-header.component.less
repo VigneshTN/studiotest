@@ -10,26 +10,24 @@
   font-size:1.125rem;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: @white !important;
+.navbar-nav a, .navbar-light .navbar-brand , {
+  color: @white ;
 }
 
+.navbar-toggler{
+  background-color: @white;
+}
+
+
 .navbar-nav a:hover {
-  color: @xd-orange !important;
+  color: @xd-orange ;
 }
 
 .navbar-collapse{
   .input-group > .form-control:not(:last-child), .input-group > .custom-select:not(:last-child) {
     border-right: 0;
   }
-
-  .input-group > .input-group-append > .input-group-text{
-    border-top-right-radius: 1.25rem;
-    border-bottom-right-radius: 1.25rem;
-  }
 }
-
-
 // .navbar-nav a:active {
 //   color: #0000FF;
 // }
@@ -40,27 +38,25 @@
     .navbar-expand-lg .navbar-collapse{
         justify-content: flex-end;
         padding-right: 2rem;
-        .input-group{
-          max-width: 200px;
-          max-height: 30px;
-          border-radius: 2rem;
-          > .form-control:not(:last-child) {
-            border-top-left-radius: 2rem;
-            border-bottom-left-radius: 2rem;
-          }
-        }
     }
     .navbar-light .navbar-nav .nav-link{
       padding: 0px 15px;
     }
+    .navbar-nav{
+      margin-top:0px;
+    }
 }
 
 @media (max-width: 576px) {
-  .navbar-nav{
-    text-align: left;
-  }
   .navbar-light .navbar-nav .nav-link{
     padding: 10px 0px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-nav{
+    text-align: left;
+    margin-top: 1rem;
   }
 }
 

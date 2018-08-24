@@ -1,1 +1,12 @@
-<h5>test search<h5>
+<div class="search-template position-relative">
+    <div class="input-group mx-lg-2 mt-3 my-lg-0" appClickOutside (clickOutside)="hideSearch()" [class.input-group--expand]="showSearchBox"
+        tabindex="0">
+        <input type="text" class="form-control" placeholder="{{placeholderText}}" aria-label="search" aria-describedby="basic-addon2">
+        <span class="search-icon" (click)="showSearch()">
+            <i class="fa fa-search"></i>
+        </span>
+    </div>
+    <div class="search-template__suggestions">
+
+    </div>
+</div>

@@ -29,7 +29,9 @@
     "ng-bootstrap": "^1.6.3",
     "less": "^3.8.1",
     "ngx-bootstrap": "^3.0.1",
-    "font-awesome":"^4.7.0"
+    "font-awesome": "^4.7.0",
+    "ng2-device-detector": "^1.0.1"
+
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",

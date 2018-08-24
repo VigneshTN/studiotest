@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
     styleUrls: ['./app-header.component.less']
 })
 
-export class AppHeaderComponent {}
+export class AppHeaderComponent {
+    
+
+    constructor() {
+
+    }
+}
