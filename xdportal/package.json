@@ -28,7 +28,8 @@
     "bootstrap": "4.0.0",
     "ng-bootstrap": "^1.6.3",
     "less": "^3.8.1",
-    "ngx-bootstrap": "^2.0.3"
+    "ngx-bootstrap": "^3.0.1",
+    "font-awesome":"^4.7.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
