@@ -7,7 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from 'src/app/static-data-service/in-memory.service';
+
+
+
 
 export class AppModuleConstants {
   static MODULE_IMPORTS = [
