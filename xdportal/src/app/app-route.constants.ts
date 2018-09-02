@@ -6,8 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './user/user.module';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from 'src/app/static-data-service/in-memory.service';
+
+import { InMemoryUserService } from 'src/app/static-data-service/in-memory.service';
+import { HttpClientInMemoryWebApiModule } from '../../node_modules/angular-in-memory-web-api';
 
 
 
@@ -20,7 +21,7 @@ export class AppModuleConstants {
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      InMemoryUserService, { delay: 1500 , dataEncapsulation: false }
     )
   ];
 

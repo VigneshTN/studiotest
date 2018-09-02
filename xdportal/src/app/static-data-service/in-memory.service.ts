@@ -1,6 +1,7 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-export class InMemoryDataService implements InMemoryDbService {
+import {InMemoryDbService} from 'angular-in-memory-web-api';
+
+export class InMemoryUserService implements InMemoryDbService {
   createDb() {
     const xdusers = [
         [

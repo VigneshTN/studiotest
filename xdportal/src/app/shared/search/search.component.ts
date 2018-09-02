@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonHelper } from '../helper/common-helper';
 import { DeviceType } from '../enums/device-type';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { User } from '../../user/interface/user.interface';
 import { SearchConstants } from './search.constants';
+import { UserService } from '../../user/service/user.service';
 
 
 @Component({
@@ -13,31 +14,23 @@ import { SearchConstants } from './search.constants';
 })
 
 export class AppUserSearchComponent implements OnInit, OnDestroy {
-    private showSearchBox: boolean = false;
-    private placeholderText: string = '';
-    private searchTerms = new Subject<string>();
+    private searchSubscriptions: Subscription;
+    public users: User[] = [];
+    public placeholderText: string = '';
+    showSearchBox: boolean = false;
 
-    users$: Observable<User[]>;
-
-    constructor(private _commonHelper: CommonHelper) {
+    constructor(private _commonHelper: CommonHelper
+          , private _userService: UserService) {
     }
 
     ngOnInit(): void {
         if (this._commonHelper.getDeviceType() === DeviceType.NONE_DESKTOP) {
             this.placeholderText = SearchConstants.Search;
         }
-        this.initSearch();
-    }
-
-    /**
-     * Init search subject
-     * @returns void
-     * @memberof AppUserSearchComponent
-     */
-    initSearch(): void {
-        // this.users$ = this.searchTerms.pipe({
-
-        // });
+        this.searchSubscriptions = this._userService.getUseres().subscribe((response) => {
+            debugger;
+            this.users = response;
+        });
     }
 
     /**
@@ -73,9 +66,14 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
      * @memberof AppUserSearchComponent
      */
     searchUser(term: string, type?: string): void {
-        this.searchTerms.next(term);
+
     }
 
+    /**
+     * on Destroy of component
+     * unsubscribe subscription events.
+     */
     ngOnDestroy(): void {
+      this.searchSubscriptions.unsubscribe();
     }
 }
