@@ -6,7 +6,9 @@ import { tap, catchError, map } from 'rxjs/operators';
 import { User } from '../interface/user.interface';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class UserService extends UserServiceContracts {
 
     constructor(private http: HttpClient) {
@@ -19,8 +21,7 @@ export class UserService extends UserServiceContracts {
      * @memberof UserService
      */
     getUseres(): Observable<User[]> {
-        return this.http.get<User[]>(this.UsersUrl)
-            .pipe(catchError(this.handleErrorObservable));
+        return this.http.get<User[]>(this.UsersUrl);
     }
 
     /**
@@ -31,8 +32,7 @@ export class UserService extends UserServiceContracts {
      */
     getUser(id: number): Observable<User> {
         const url = `${this.UsersUrl}/${id}`;
-        return this.http.get<User>(url)
-            .pipe(catchError(this.handleErrorObservable));
+        return this.http.get<User>(url);
     }
 
     /**
@@ -42,8 +42,7 @@ export class UserService extends UserServiceContracts {
      * @memberof UserService
      */
     addUser(user: User) {
-        return this.http.post<User>(this.UsersUrl, user)
-            .pipe(catchError(this.handleErrorObservable));
+        return this.http.post<User>(this.UsersUrl, user);
     }
 
     /**
@@ -54,8 +53,7 @@ export class UserService extends UserServiceContracts {
      */
     deleteUser(user: User) {
         const url = `${this.UsersUrl}/${user.id}`;
-        return this.http.delete<User>(url)
-            .pipe(catchError(this.handleErrorObservable));
+        return this.http.delete<User>(url);
     }
 
     searchUseres(term: string): Observable<User[]> {
@@ -63,24 +61,10 @@ export class UserService extends UserServiceContracts {
             // if not search term, return empty hero array.
             return of([]);
         }
-        return this.http.get<User[]>(`${this.UsersUrl}/?name=${term}`).pipe(
-            catchError(this.handleErrorObservable)
-        );
+        return this.http.get<User[]>(`${this.UsersUrl}/?name=${term}`);
     }
 
     updateUser(user: User): Observable<any> {
-        return this.http.put(this.UsersUrl, user)
-            .pipe(catchError(this.handleErrorObservable));
+        return this.http.put(this.UsersUrl, user);
     }
-
-
-    /**
-   * To handle the obervable error response
-   * @param  {Response|any} error
-   */
-    private handleErrorObservable(error: Response | any) {
-        return Observable.throw(error.message || error);
-    }
-
-
 }
