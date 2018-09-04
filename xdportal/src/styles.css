@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+/*@import url('../src/assets/fonts/RussoOne-Regular.ttf');*/
 
 @font-face{
     font-family:'JosefinSans-light';
@@ -56,6 +59,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 
 /** Media Query **/
+@media(max-width: 567px){
+    .container {
+		width: 95%;	
+	}
+}
+
+@media(min-width: 568px) and (max-width:767px){
+    .container {
+		width: 90%;	
+	}
+}
+
 @media(min-width: 768px){
     .container {
 		width: 750px;	
@@ -64,13 +79,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 @media (min-width: 992px){
 	.container {
-		width: 970px;
+		width: 1200px;
 	}
 }
 
-@media (min-width: 1200){
-	.container {
-		width: 1170px;
-	}
-}
 

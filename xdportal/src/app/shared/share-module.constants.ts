@@ -7,11 +7,14 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
 import { RouterModule } from '@angular/router';
-
+import {CommonModule} from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 export class SharedModuleConstants {
     static MODULE_IMPORTS = [
         RouterModule,
+        CommonModule,
+        FormsModule,
         Ng2DeviceDetectorModule.forRoot(),
         BsDropdownModule.forRoot(),
         CollapseModule.forRoot()

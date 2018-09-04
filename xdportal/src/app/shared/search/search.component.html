@@ -1,17 +1,20 @@
 <div class="search-template position-relative">
     <div class="input-group mx-lg-2 mt-3 my-lg-0" appClickOutside (clickOutside)="hideSearch()" [class.input-group--expand]="showSearchBox"
         tabindex="0">
-        <input type="text" class="form-control" #searchInput
+        <input type="text" class="form-control" [(ngModel)]="searchText"
             placeholder="{{placeholderText}}" aria-label="search"
             aria-describedby="basic-addon2"
-            (keyup)="searchUser(searchInput.value)">
-        <span class="search-icon" (click)="showSearch()">
+            (keyup.enter)="searchUser(searchText)">
+        <span class="search-icon" (click)="showSearch(searchText)">
             <i class="fa fa-search"></i>
         </span>
+        <span class="close-icon" *ngIf="searchText" (click)="clearSearch($event)">
+            <i class="fa fa-times"></i>
+        </span>
     </div>
-    <div class="search-template__suggestions">
+    <div class="search-template__suggestions" *ngIf="recentSearchUsers && recentSearchUsers.length>1">
         <ul class="search-result">
-            <li>
+            <li *ngFor="let user of recentSearchUsers">
               <a>
 
               </a>

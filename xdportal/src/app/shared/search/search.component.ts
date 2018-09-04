@@ -15,22 +15,20 @@ import { UserService } from '../../user/service/user.service';
 
 export class AppUserSearchComponent implements OnInit, OnDestroy {
     private searchSubscriptions: Subscription;
-    public users: User[] = [];
     public placeholderText: string = '';
     showSearchBox: boolean = false;
+    recentSearchUsers: User[] = [];
+    searchType: string = '';
+    searchText: string = '';
 
     constructor(private _commonHelper: CommonHelper
-          , private _userService: UserService) {
+        , private _userService: UserService) {
     }
 
     ngOnInit(): void {
         if (this._commonHelper.getDeviceType() === DeviceType.NONE_DESKTOP) {
             this.placeholderText = SearchConstants.Search;
         }
-        this.searchSubscriptions = this._userService.getUseres().subscribe((response) => {
-            debugger;
-            this.users = response;
-        });
     }
 
     /**
@@ -38,10 +36,14 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
      * @returns void
      * @memberof AppUserSearchComponent
      */
-    showSearch(): void {
+    showSearch(searchValue): void {
         if (this._commonHelper.getDeviceType() === DeviceType.DESKTOP_DEVICE) {
-            this.showSearchBox = !this.showSearchBox;
-            this.placeholderText = this.placeholderText ? '' : SearchConstants.Search;
+            if (!searchValue) {
+                this.showSearchBox = !this.showSearchBox;
+                this.placeholderText = this.placeholderText ? '' : SearchConstants.Search;
+            } else {
+                this.searchUser(searchValue, this.searchType);
+            }
         }
     }
 
@@ -55,7 +57,20 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
         if (this._commonHelper.getDeviceType() === DeviceType.DESKTOP_DEVICE) {
             this.showSearchBox = $event;
             this.placeholderText = '';
+            this.searchText = '';
         }
+    }
+
+    /**
+     * clear search input value
+     * @param {any} event
+     * @returns void
+     * @memberof AppUserSearchComponent
+     */
+    clearSearch(event): void {
+        event.stopPropagation();
+        this.placeholderText = SearchConstants.Search;
+        this.searchText = '';
     }
 
     /**
@@ -66,7 +81,7 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
      * @memberof AppUserSearchComponent
      */
     searchUser(term: string, type?: string): void {
-
+        console.log(term);
     }
 
     /**
@@ -74,6 +89,6 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
      * unsubscribe subscription events.
      */
     ngOnDestroy(): void {
-      this.searchSubscriptions.unsubscribe();
+        this.searchSubscriptions.unsubscribe();
     }
 }

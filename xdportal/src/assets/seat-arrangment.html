@@ -1,0 +1,588 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function() {
+	   console.log($("[data-t-seat='403']"));
+	});
+	</script>
+</head>
+<style>
+  .xd__studio{
+	margin-top: 0.5rem;
+  }
+ .xd__studio .seat{
+	background:url("seat-icon-new.png") no-repeat center ;
+	min-height: 42px;
+	position: relative;
+    left: 11px;
+ }
+ .xd__studio .desk{
+	background:url("desk-icon-new.png") no-repeat center ;
+	min-height: 35px;
+ }
+ .xd__studio .desk.desk--right{
+	background:url("desk-icon-new.png") no-repeat center ;
+	transform: scaleX(-1);
+ }
+ .xd__studio .seat.seat--left{
+	background:url("seat-icon-new.png") no-repeat center ;
+    transform: scaleX(-1);
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    left: -10px;
+ }
+ .xd__studio:nth-child(5), .xd__studio:nth-child(9){
+    padding-bottom: 40px;
+ }
+ .xd__studio .xd__studio__entry{
+	height: 38px;
+    width: 70px;
+    border: 1px solid #80808075;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    position: absolute;
+    left: -25px;
+    bottom: 45px;
+ }
+ .xd__studio .xd__studio__entry p {
+	font-size:10px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+ }
+ .xd__studio .xd__studio__entry span i{
+ 	position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+ }
+ .xd__studio .xd__studio__entry span i:before{
+ 	color:#808080a1;
+ }
+ .break__out{
+	border:1px solid #80808075;
+ }
+ .indicator{
+	font-size: 12px;
+    font-weight: 500;
+ }
+ .indicator span{
+	display: inline-block;
+    min-height: 10px;
+    min-width: 10px;
+    border: 2px solid rgb(245, 6, 6);
+ }
+ 
+ 
+ /******** Animations ************/
+ .draw {
+  overflow: hidden;
+  position: relative;
+}
+.draw::before, .draw::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+.draw::before {
+  top: 0;
+  left: 0;
+  border-top-color: rgb(245, 6, 6);
+  border-right-color: rgb(245, 6, 6);
+  animation: border 2s infinite;
+}
+.draw::after {
+  bottom: 0;
+  right: 0;
+  animation: border 2s 1s infinite, borderColor 2s 1s infinite;
+}
+
+@keyframes border {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  25% {
+    width: 100%;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+@keyframes borderColor {
+  0% {
+    border-bottom-color: rgb(245, 6, 6);
+    border-left-color:rgb(245, 6, 6);
+  }
+  50% {
+    border-bottom-color: rgb(245, 6, 6);
+    border-left-color: rgb(245, 6, 6);
+  }
+  51% {
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  100% {
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+</style>
+<body>
+	<div class="col-12 mt-3 text-center">
+		<div class="row">
+			<div class="col-3"></div>
+		<div class="col-4 text-center break__out">
+			Break out area
+		</div>
+		<div class="col-5 text-center indicator">
+			<div>
+				<span></span> Look at this mark to locate the seat
+			</div>
+		</div>
+		</div>
+	</div>
+    <div class="col-12 mt-3 xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12 xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12 xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+				<div class="xd__studio__entry">
+					<p>Entry Here</p>
+					<span>
+						<i class="fa fa-arrow-right"></i>
+					</span>
+				</div>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+				<div class="xd__studio__entry">
+					<p>Entry Here</p>
+					<span>
+						<i class="fa fa-arrow-right"></i>
+					</span>
+				</div>
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left" data-t-seat="404"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left " data-t-seat="403"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left" data-t-seat="402"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left" data-t-seat="401"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+	<div class="col-12  xd__studio">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-4 seat seat--left" data-t-seat="400"></div>
+                        </div>
+                    </div>
+                    <div class="col-4 ml-3">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-2 seat"></div>
+                            <div class="col-2 desk"></div>
+                            <div class="col-2 desk desk--right"></div>
+                            <div class="col-2 seat seat--left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+</body>
+</body>
+
+</html>
