@@ -5,14 +5,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function() {
-	   console.log($("[data-t-seat='403']"));
+	   $("[data-t-seat='403']").addClass('draw');
 	});
 	</script>
 </head>
 <style>
-  .xd__studio{
-	margin-top: 0.5rem;
-  }
  .xd__studio .seat{
 	background:url("seat-icon-new.png") no-repeat center ;
 	min-height: 42px;
@@ -46,7 +43,7 @@
     border-left-width: 0px;
     position: absolute;
     left: -25px;
-    bottom: 45px;
+    bottom: 51px;
  }
  .xd__studio .xd__studio__entry p {
 	font-size:10px;
@@ -64,6 +61,7 @@
  	color:#808080a1;
  }
  .break__out{
+	width: 93%;
 	border:1px solid #80808075;
  }
  .indicator{
@@ -75,6 +73,14 @@
     min-height: 10px;
     min-width: 10px;
     border: 2px solid rgb(245, 6, 6);
+ }
+ .xd__studio > .row > div:first-child{
+	border-right: 1px solid #80808075;
+ }
+ 
+
+ .xd__studio > .row > div:nth-of-type(2) > .row > div:nth-of-type(3) > .row{
+	margin-top: 0.5rem;
  }
  
  
@@ -144,20 +150,22 @@
 	<div class="col-12 mt-3 text-center">
 		<div class="row">
 			<div class="col-3"></div>
-		<div class="col-4 text-center break__out">
-			Break out area
+		<div class="col-5 text-center px-0">
+			<div class="break__out">
+				Break out area
+			</div>
 		</div>
-		<div class="col-5 text-center indicator">
+		<div class="col-4 text-center indicator">
 			<div>
 				<span></span> Look at this mark to locate the seat
 			</div>
 		</div>
 		</div>
 	</div>
-    <div class="col-12 mt-3 xd__studio">
+    <div class="col-12 xd__studio">
         <div class="row">
             <div class="col-3"></div>
-            <div class="col-6">
+            <div class="col-6 mt-3">
                 <div class="row">
                     <div class="col-2">
                         <div class="row">
@@ -173,7 +181,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -205,7 +213,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -237,7 +245,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                     <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -269,7 +277,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                     <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -307,7 +315,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                   <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -339,7 +347,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -371,7 +379,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                   <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -403,7 +411,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                   <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -441,7 +449,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                   <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -473,7 +481,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                   <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -505,7 +513,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -537,7 +545,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>
@@ -569,7 +577,7 @@
                             <div class="col-2 seat seat--left"></div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="row">
                             <div class="col-2 seat"></div>
                             <div class="col-2 desk"></div>

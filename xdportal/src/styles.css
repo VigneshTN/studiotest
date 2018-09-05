@@ -56,12 +56,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     display: block;
 }
 
+label, p {
+    margin-bottom: 0rem;
+}
+
 
 
 /** Media Query **/
 @media(max-width: 567px){
     .container {
-		width: 95%;	
+		width: 90%;	
 	}
 }
 

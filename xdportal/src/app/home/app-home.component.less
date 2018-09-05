@@ -7,25 +7,58 @@
 
 .home__baseline{
     padding-top: 120px;
-    .home__baseline__welcome__block{
+    @media @mobileDevicePortait {
+        padding-top: 20px;
+    }
+    @media @mobileDeviceLandscape{
+        padding-top: 50px;
+    }
+    &__welcome__block{
         font-family: 'Pacifico', cursive;
         padding: 100px 20px;
-        .home__baseline__welcome__block__text{
+        @media @mobileDevicePortait{
+            padding: 30px 20px 20px 0px;
+        }
+        @media @mobileDeviceLandscape{
+            padding: 80px 0px;
+        }
+        &__text{
             font-size: 3rem;
             color: @xd-orange;
-            line-height: 8rem;
             text-shadow: -1px 0px 2px #1d1d1d;
             -webkit-transform: rotate(-6deg);
             transform: rotate(-6deg);
+            @media @mobileDevicePortait , @tabDeviceLandscape{
+                font-size: 2.3rem;
+                line-height: 3.5rem;
+            }
+            @media @mobileDeviceLandscape{
+                font-size: 2rem;
+                line-height: 3rem;
+            }
+            @media @tabDevicePortrait{
+                font-size: 2rem;
+                line-height: 2.3rem;
+            }
         }
-        .home__baseline__welcome__block__title{
+        &__title{
             font-family: 'Permanent Marker', cursive;
             font-size: 4rem;
             color: #fff;
             text-shadow: -1px -1px 5px @xd-black;
             transform: rotate(-6deg);
+            @media @mobileDevicePortait{
+                font-size: 2.8rem;
+            }
+            @media @mobileDeviceLandscape{
+                font-size: 2rem;
+                line-height: 3rem;
+            }
+            @media @tabDevicePortrait{
+                font-size:3.2rem;
+            }
         }
-        .home__baseline__welcome__block__para{
+        &__para{
             font-size: 2rem;
             color: #fff;
             font-family: 'JosefinSans-regular';
@@ -41,6 +74,16 @@
                 transform: translateX(-50%);
                 bottom: 0px;
             }
+            @media @mobileDevicePortait{
+                font-size: 1.2rem;
+            }
+            @media @mobileDeviceLandscape{
+                font-size: 1.2rem;
+                line-height: 2rem;
+            }
+            @media @tabDevicePortrait{
+                font-size: 1.5rem;
+            }
         }
     }
 }
@@ -52,6 +95,18 @@
     border-top-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
     margin-bottom: 3.5rem;
+    @media @mobileDevicePortait{
+        height: 400px;
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+        max-width: 90%;
+    }
+    @media @mobileDeviceLandscape{
+        height: 420px;
+    }
+    @media @tabDevicePortrait{
+        height: 380px;
+    }
 }
 
 
@@ -63,64 +118,3 @@
 }
 
 
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    .home__baseline{
-        padding-top: 50px;
-        .home__baseline__welcome__block{
-            padding: 85px 20px;
-            .home__baseline__welcome__block__text{
-                font-size: 2.3rem;
-                line-height: 5rem;
-            }
-            .home__baseline__welcome__block__title{
-                font-size:3.2rem;
-            }
-        }
-        .home__baseline__bulletin{
-            height: 380px;
-        }
-    }
-}
-
-
-/* Media Query for Portrait mode from iphone5 to Galexy all Phones*/
-@media only screen and (min-device-width : 320px) and (max-device-width : 767px) and (orientation: portrait){
-    .home__baseline{
-        padding-top: 20px;
-        .home__baseline__welcome__block{
-            padding: 50px 20px;
-            .home__baseline__welcome__block__text{
-                font-size: 2.5rem;
-                line-height: 5rem;
-            }
-            .home__baseline__welcome__block__title{
-                font-size:2.8rem;
-            }
-        }
-        .home__baseline__bulletin{
-            height: 400px;
-            margin-bottom: 2rem;
-        }
-    }
-}
-
-/* Media Query for Landscape mode from iphone5 to Galexy all Phones*/
-@media only screen and (min-device-width : 320px) and (max-device-width : 767px) and (orientation: landscape){
-    .home__baseline{
-        padding-top: 50px;
-        .home__baseline__welcome__block{
-            padding: 110px 0px;
-            .home__baseline__welcome__block__text{
-                font-size: 2.5rem;
-                line-height: 5rem;
-            }
-            .home__baseline__welcome__block__title{
-                font-size:2.8rem;
-            }
-        }
-        .home__baseline__bulletin{
-            height: 420px;
-        }
-    }
-}
