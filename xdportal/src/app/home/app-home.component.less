@@ -91,6 +91,9 @@
 .home__baseline__bulletin{
     height: 500px;
     width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: @xd-bulletin;
     border-top-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
@@ -106,6 +109,36 @@
     }
     @media @tabDevicePortrait{
         height: 380px;
+    }
+    &__circle{
+        width: 360px;
+        border: 2px solid white;
+        height: 360px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        line-height: 1rem;
+        align-content: center;
+        div{
+            position: relative;
+            top: 7%;
+            p{
+                flex: 0 1 100%;
+            }
+            p:first-child{
+                font-size: 10rem;
+                color: @white;
+                font-weight: 200;
+            }
+            p:nth-of-type(2){
+                padding-top: 75px;
+                font-size: 2rem;
+                color: #ffb52f;
+            }
+        }
     }
 }
 

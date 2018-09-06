@@ -17,6 +17,7 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
     private searchSubscriptions: Subscription;
     public placeholderText: string = '';
     showSearchBox: boolean = false;
+    hideSearchSuggestion: boolean = false;
     recentSearchUsers: User[] = [];
     searchType: string = '';
     searchText: string = '';
@@ -48,6 +49,17 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
     }
 
     /**
+     * Update Search suggestions
+     * @return void
+     * @memberof AppUserSearchComponent
+     */
+    updateSearchSuggestion(): void {
+        if (this.searchText) {
+            this.hideSearchSuggestion = false;
+        }
+    }
+
+    /**
      * hide search input box
      * @param {any} $event
      * @returns void
@@ -55,8 +67,12 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
      */
     hideSearch($event): void {
         if (this._commonHelper.getDeviceType() === DeviceType.DESKTOP_DEVICE) {
-            this.showSearchBox = $event;
-            this.placeholderText = '';
+            if (document.getElementsByClassName('search-result--show').length > 0) {
+                this.hideSearchSuggestion = true;
+            } else {
+                this.showSearchBox = $event;
+                this.placeholderText = '';
+            }
             this.searchText = '';
         }
     }
