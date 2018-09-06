@@ -1,12 +1,21 @@
 
+@import '../../shared/styles/mixins.less';
+
 .profile__view{
     padding: 20px;
+    line-height: 1.8rem;
+    .Rubik-Regular; 
+    color:@xd-brown;
     .card{
-        box-shadow: 1px 0px 4px 1px #4646463d;
+        box-shadow: 1px 0px 4px 1px @xd-cardShadow;
         padding: 14px;
         border-radius: 10px;
     }
     .profile__view__aside__left{
+        border-right: 1px solid @xd-lightGrey;
+        position: relative;
+        left: -1500px;
+        transition: all 0.5s ease-out;
         &__user{
             margin-top: 2rem;
             height: 200px;
@@ -16,21 +25,65 @@
                 height: 200px;
                 border-radius: 50%;
                 position: absolute;
-                left: 35%;
+                left: 50%;
                 transform: translateX(-50%);
+            }
+        }
+        &__content__user{
+            line-height: 1.6rem;
+            .name{
+                font-weight: 600;
+                font-size: 1.6rem;
+                .PatuaOne-Regular; 
+            }
+        }
+        &__content__skill{
+            line-height: 1.8rem;
+            font-size: 0.9rem;
+            /deep/ progress-bar{
+                .progress-bar{
+                    background-color:@xd-progressBar;
+                }
             }
         }
     }
     .profile__view__aside__right{
-        margin-top: 2rem;
+        left: 1500px;
+        position: relative;
+        transition: all 0.8s ease-out;
     }
     .content__section{
         text-align: left;
         &__header{
-            font-size: 1.4rem;
+            >div:first-child{ 
+                display: inline-block;
+                &:after{
+                    content: '';
+                    border-bottom: 1px solid #ffb52f;
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                    bottom: -3px;
+                }
+            }
+            text-align: left;
+            font-size: 1.2rem;
             font-weight: 600;
-            color: rgb(255, 181, 47);
+            color: @xd-orange;
+            margin-bottom: 0.5rem;
         }
+        label{
+            padding: 0px 5px 0px 0px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        p{
+            font-weight: 500;
+            .Rubik-Regular;
+        }
+    }
+    .slideInLeft{
+        left: 0px;
     }
 }
 

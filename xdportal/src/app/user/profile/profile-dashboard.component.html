@@ -1,28 +1,28 @@
 <div class="profile__view">
     <div class="row">
-        <div class="col-5 profile__view__aside__left">
+        <div class="col-12 col-md-5 profile__view__aside__left px-0 px-sm-2" [ngClass]="{'slideInLeft': user}">
             <div class="row position-relative profile__view__aside__left__user">
                 <img src="../../../assets/images/11583154.jpg" alt="user_profile_image">
             </div>
             <div class="row">
-                <div class="profile__view__aside__left__content__section">
-                    <div class="row">
-                        <div class="name">Vignesh Thimma Natarajan</div>
+                <div class="col profile__view__aside__left__content__user">
+                    <div class="row text-center">
+                        <div class="col name my-2">Vignesh Thimma Natarajan</div>
                     </div>
                     <div class="row">
-                        <div class="desgination">Application Development Analyst</div>
+                        <div class="col desgination">Application Development Analyst</div>
                     </div>
                     <div class="row">
-                        <div class="enterpriseId">11583154</div>
+                        <div class="col enterpriseId">v.thimma.natarajan</div>
                     </div>
                 </div>
             </div>
-            <div class="mt-4 content__section card">
+            <div class="mt-4 profile__view__aside__left__content__skill content__section card">
                 <div class="content__section__header">
-                    Expert At
+                    <div class="position-relative">Expert At</div>
                 </div>
                 <div class="row">
-                    <div class="col-3 text-left px-0">Bootstrap</div>
+                    <label class="col-3 text-left px-0">Bootstrap</label>
                     <div class="col-6 px-0">
                         <div class="mt-1">
                             <progressbar value="75">75%</progressbar>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3 text-left px-0">Angular</div>
+                    <label class="col-3 text-left px-0">Angular</label>
                     <div class="col-6 px-0">
                         <div class="mt-1">
                             <progressbar value="85">85%</progressbar>
@@ -40,35 +40,41 @@
             </div>
             <div class="mt-4 content__section card">
                 <div class="content__section__header">
-                    Professional and Academic
+                    <div class="position-relative">Professional and Academic</div>
                 </div>
                 <div class="row">
-                    <label>Experience :</label><p> 2 Years and 11 months</p>
+                    <label>Journey of Accenture started - </label><p> 16 August 2018</p>
                 </div>
                 <div class="row">
-                    <label>Past Organizations :</label><p> Nextsphere</p>
+                    <label>Project in Accenture - </label><p> Enbridge </p>
                 </div>
                 <div class="row">
-                    <label>Graduated in:</label><p> B.E Computer science and engineering</p>
+                    <label>Employee ID - </label><p> 11583134 </p>
                 </div>
                 <div class="row">
-                    <label>Graduation on:</label><p> 2015</p>
+                    <label>Experience - </label><p> 2 Years and 11 months</p>
                 </div>
                 <div class="row">
-                    <label>Journey of Accenture started:</label><p> 16 August 2018</p>
+                    <label>Past Organizations - </label><p> Nextsphere</p>
+                </div>
+                <div class="row">
+                    <label>Graduated in - </label><p> B.E Computer science and engineering</p>
+                </div>
+                <div class="row">
+                    <label>Graduation on - </label><p> 2015</p>
                 </div>
             </div>
         </div>
-        <div class="col-7">
-            <div class="profile__view__aside__right">
-                <div class="content__section card">
+        <div class="col-12 col-md-7 px-0 px-2 mt-0 mt-4">
+            <div class="profile__view__aside__right" [ngClass]="{'slideInLeft': user}">
+                <div class="content__section card" >
                     <div class="content__section__header">
-                        Who is He
+                        <div class="position-relative">Who is He</div>
                     </div>
                     <div class="text-left">
-                        <div class="row">
+                        <label class="row">
                             Biography
-                        </div>
+                        </label>
                         <div class="row">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -76,9 +82,9 @@
                             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                             mollit anim id est laborum
                         </div>
-                        <div class="row">
+                        <label class="row mt-3">
                             Personal Quote
-                        </div>
+                        </label>
                         <div class="row">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -86,56 +92,56 @@
                         </div>
                     </div>
                 </div>
-                <div class="content__section card mt-3">
+                <div class="content__section card mt-4">
                     <div class="content__section__header">
-                        Where is He
+                        <div class="position-relative">Where is He</div>
                     </div>
                     <div class="text-left">
                         <div class="row">
-                            <label>Lives in :</label><p> Chennai </p>
+                            <label>Lives in - </label><p> Chennai </p>
                         </div>
                         <div class="row">
-                            <label>Native :</label><p> Madurai </p>
+                            <label>Native - </label><p> Madurai </p>
                         </div>
                         <div class="row">
                             <div class="">
-                                <label>Present Address :</label>
+                                <label>Present Address - </label>
                             </div>
-                            <div class="col-9">
+                            <div class="col-12 col-md-9">
                                 <p> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi,Ut enim ad minim
                                     veniam, quis nostrud exercitatio. </p>
                             </div>
                         </div>
                         <div class="row">
-                            <label>Contact :</label><p> 9003713371 </p>
+                            <label>Contact - </label><p> 9003713371 </p>
                         </div>
                     </div>
                 </div>
-                <div class="content__section card mt-3">
+                <div class="content__section card my-4">
                     <div class="content__section__header">
-                        What's more about him
+                        <div class="position-relative">What's more about him</div>
                     </div>
                     <div class="text-left">
                         <div class="row">
-                            <label>Date of birth :</label><p> 13, September 1993 </p>
+                            <label>Date of birth - </label><p> 13, September 1993 </p>
                         </div>
                         <div class="row">
-                            <label>RelationShip :</label><p> Single </p>
+                            <label>RelationShip - </label><p> Single </p>
                         </div>
                         <div class="row">
-                            <label>Religion :</label><p> Hindu </p>
+                            <label>Religion - </label><p> Hindu </p>
                         </div>
                         <div class="row">
-                            <label>Your Role model :</label><p> Ajith Kumar </p>
+                            <label>Your Role model - </label><p> Ajith Kumar </p>
                         </div>
                         <div class="row">
-                            <label>Passionate on :</label><p> Designing </p>
+                            <label>Passionate on - </label><p> Designing </p>
                         </div>
                         <div class="row">
-                            <label>Hobbies :</label><p> Gym, Bike Riding , Sports </p>
+                            <label>Hobbies - </label><p> Gym, Bike Riding , Sports </p>
                         </div>
                         <div class="row">
-                            <label>Favourite Food items :</label><p> All Indian foods </p>
+                            <label>Favourite Food items - </label><p> All Indian foods </p>
                         </div>
                     </div>
                 </div>
