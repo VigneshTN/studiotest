@@ -1,36 +1,30 @@
 <div class="search-template position-relative">
-    <div class="input-group mx-lg-2 mt-3 my-lg-0" appClickOutside (clickOutside)="hideSearch()" [class.input-group--expand]="showSearchBox"
-        tabindex="0">
-        <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="{{placeholderText}}" aria-label="search" aria-describedby="basic-addon2"
-            (keyup)="updateSearchSuggestion()" (keyup.enter)="searchUser(searchText)">
-        <span class="search-icon" (click)="showSearch(searchText)">
-            <i class="fa fa-search"></i>
-        </span>
-        <span class="close-icon" *ngIf="searchText" (click)="clearSearch($event)">
-            <i class="fa fa-times"></i>
-        </span>
-    </div>
-    <div class="search-template__suggestions" [ngClass]="{'search-template__suggestions--show': searchText.length>2}">
-        <ul class="search-result" [ngClass]="{'search-result--show': searchText.length>2 , 
+  <div class="input-group mx-lg-2 mt-3 my-lg-0" appClickOutside (clickOutside)="hideSearch()" [class.input-group--expand]="showSearchBox"
+    tabindex="0">
+    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="{{placeholderText}}" aria-label="search" aria-describedby="basic-addon2"
+      (keyup)="updateSearchSuggestion()" (keyup.enter)="searchUser(searchText)">
+    <span class="close-icon" [class.close-icon--show]="searchText.length>1" (click)="clearSearch($event)">
+      <i class="fa fa-times-thin fa-2x"></i>
+    </span>
+    <span class="search-icon" (click)="showSearch(searchText)">
+      <i class="fa fa-search"></i>
+    </span>
+  </div>
+  <div class="search-template__suggestions" [ngClass]="{'search-template__suggestions--show': searchText.length>2}">
+    <ul class="search-result" [ngClass]="{'search-result--show': searchText.length>2 ,
                         'search-result--hide': hideSearchSuggestion}">
-            <li>
-                <div class="row position-relative">
-                    <div class="col-2 px-1">
-                        <img src="../../../assets/images/11583154.jpg">
-                    </div>
-                    <div class="col-7 px-1 text-left d-relative">
-                        <p class="p-0">vignesh thimma</p>
-                    </div>
-                </div>
-                <div class="row position-relative">
-                    <div class="col-2 px-1">
-                        <img src="../../../assets/images/11583154.jpg">
-                    </div>
-                    <div class="col-7 px-1 text-left d-relative">
-                        <p class="p-0">vignesh thimma</p>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+      <li>
+        <perfect-scrollbar style="max-width: 100%; max-height: 247px;">
+          <div class="row position-relative cursor-pointer pl-4 pr-2" *ngFor="let user of users">
+            <div class="px-1">
+              <img src="../../../assets/images/11583154.jpg">
+            </div>
+            <div class="px-1 text-left d-relative">
+              <p class="p-0">{{user.name}}</p>
+            </div>
+          </div>
+        </perfect-scrollbar>
+      </li>
+    </ul>
+  </div>
 </div>

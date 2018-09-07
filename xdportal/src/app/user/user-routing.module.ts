@@ -1,4 +1,4 @@
-import { NgModule } from '../../../node_modules/@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileDashboardCompnent } from './profile/profile-dashboard.component';
 

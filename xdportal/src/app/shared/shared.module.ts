@@ -9,7 +9,7 @@ import { XHRBackend, RequestOptions, Http } from '@angular/http';
 @NgModule({
     imports: [SharedModuleConstants.MODULE_IMPORTS],
     declarations: SharedModuleConstants.MODULE_COMPONENTS,
-    providers: [CommonHelper],
+    providers: [SharedModuleConstants.MODULE_PROVIDERS],
     exports: SharedModuleConstants.MODULE_COMPONENTS
 })
 

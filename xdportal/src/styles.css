@@ -43,24 +43,28 @@ label, p {
     margin-bottom: 0rem;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 
 
 /** Media Query **/
 @media(max-width: 567px){
     .container {
-		width: 90%;	
+		width: 90%;
 	}
 }
 
 @media(min-width: 568px) and (max-width:767px){
     .container {
-		width: 90%;	
+		width: 90%;
 	}
 }
 
 @media(min-width: 768px){
     .container {
-		width: 750px;	
+		width: 750px;
 	}
 }
 

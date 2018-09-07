@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 import { CommonHelper } from '../helper/common-helper';
 import { DeviceType } from '../enums/device-type';
 import { Observable, Subject, Subscription } from 'rxjs';
@@ -18,7 +18,7 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
     public placeholderText: string = '';
     showSearchBox: boolean = false;
     hideSearchSuggestion: boolean = false;
-    recentSearchUsers: User[] = [];
+    users: User[] = [];
     searchType: string = '';
     searchText: string = '';
 
@@ -30,7 +30,27 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
         if (this._commonHelper.getDeviceType() === DeviceType.NONE_DESKTOP) {
             this.placeholderText = SearchConstants.Search;
         }
+        // this.initSlimScroll();
+        this.getUsers();
     }
+
+    // initSlimScroll() {
+    //   this.opts = {
+    //     position: 'right',
+    //     barBackground: '#C9C9C9',
+    //     barOpacity: '0.8',
+    //     barWidth: '10',
+    //     barBorderRadius: '20',
+    //     barMargin: '0',
+    //     gridBackground: '#D9D9D9',
+    //     gridOpacity: '1',
+    //     gridWidth: '2',
+    //     gridBorderRadius: '20',
+    //     gridMargin: '0',
+    //     alwaysVisible: true,
+    //     visibleTimeout: 1000
+    //   };
+    // }
 
     /**
      * show search input box
@@ -87,6 +107,17 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
         event.stopPropagation();
         this.placeholderText = SearchConstants.Search;
         this.searchText = '';
+    }
+
+    /**
+     * Get User
+     * @returns void
+     * @memberof AppUserSearchComponent
+     */
+    getUsers() {
+        this._userService.getUseres().subscribe((response) => {
+          this.users = response;
+        });
     }
 
     /**

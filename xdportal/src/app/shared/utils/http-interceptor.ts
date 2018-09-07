@@ -4,7 +4,7 @@ import { environment } from '../../../environments/environment';
 import { catchError } from 'rxjs/operators';
 import { tap, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpInterceptor } from '../../../../node_modules/@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpInterceptor } from '@angular/common/http';
 
 export class InterceptService implements HttpInterceptor {
   // intercept request and add token
