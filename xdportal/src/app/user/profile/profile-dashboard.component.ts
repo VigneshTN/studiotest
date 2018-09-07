@@ -3,10 +3,12 @@ import {
     OnDestroy,
     OnInit,
     AfterViewInit,
-  } from '@angular/core';
+} from '@angular/core';
 import { UserService } from '../service/user.service';
 import { ActivatedRoute } from '@angular/router';
-import {User} from '../interface/user.interface';
+import { User } from '../interface/user.interface';
+import { Subscription } from 'rxjs';
+import { ProfileDashBoardConstants } from './profile-dashboard.constants';
 
 @Component({
     selector: 'app-profile-dashboard',
@@ -17,17 +19,22 @@ import {User} from '../interface/user.interface';
 // tslint:disable-next-line:component-class-suffix
 export class ProfileDashboardCompnent implements OnInit, OnDestroy, AfterViewInit {
     userId: number = 0;
-    user: boolean = false;
+    user: User = null;
+    userServiceSubscription: Subscription;
     constructor(private _activatedRoute: ActivatedRoute,
-        private _userService: UserService) {}
+        private _userService: UserService) { }
 
     ngOnDestroy(): void {
     }
     ngOnInit(): void {
         this._activatedRoute.params.subscribe((params) => {
-            this.userId = params['employeeId'];
+            document.getElementById(ProfileDashBoardConstants.ProfileViewLeftPaneId)
+                .classList.remove(ProfileDashBoardConstants.SlideInLeft);
+            document.getElementById(ProfileDashBoardConstants.ProfileViewRightPaneId)
+                .classList.remove(ProfileDashBoardConstants.SlideInLeft);
+            this.userId = params['id'];
+            this.getUserById();
         });
-        this.getUserById();
     }
 
 
@@ -37,12 +44,13 @@ export class ProfileDashboardCompnent implements OnInit, OnDestroy, AfterViewIni
      * @memberof ProfileDashboardCompnent
      */
     getUserById(): void {
-        setTimeout(() => {
-            this.user = true;
-        }, 500);
-        // this._userService.getUser(this.userId).subscribe((data) => {
-        //     this.user = data;
-        // });
+        this.userServiceSubscription = this._userService.getUser(this.userId).subscribe((data) => {
+            this.user = data;
+            document.getElementById(ProfileDashBoardConstants.ProfileViewLeftPaneId)
+                .classList.add(ProfileDashBoardConstants.SlideInLeft);
+            document.getElementById(ProfileDashBoardConstants.ProfileViewRightPaneId)
+                .classList.add(ProfileDashBoardConstants.SlideInLeft);
+        });
     }
 
     ngAfterViewInit(): void {

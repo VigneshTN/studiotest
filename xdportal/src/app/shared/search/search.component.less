@@ -99,16 +99,21 @@
         }
         li {
           .row{
-            padding-top: 8px;
+            padding:0.5rem 1.3rem;
           }
           .row:after{
               content: '';
-              border-bottom: 2px solid @xd-search-divider;
-              width: 87%;
-              position: absolute;
-              bottom: -6px;
-              left: 50%;
-              transform: translateX(-50%);
+                border-bottom: 2px solid @xd-search-divider;
+                width: 91%;
+                position: absolute;
+                bottom: -2px;
+                left: 50%;
+                transform: translateX(-50%);
+          }
+          .search-result__no-match{
+            text-align: left;
+            font-size: 0.9rem;
+            padding: 8px;
           }
         }
     }

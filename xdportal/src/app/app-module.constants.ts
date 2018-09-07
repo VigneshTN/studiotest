@@ -11,6 +11,7 @@ import { InterceptService } from './shared/utils/http-interceptor';
 import { GlobalErrorHandlerService } from './shared/utils/global-error-handler';
 import { ErrorHandler } from '../../node_modules/@angular/core';
 
+
 export class AppModuleConstants {
   static MODULE_IMPORTS = [
     BrowserModule,
@@ -19,7 +20,7 @@ export class AppModuleConstants {
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryUserService, { delay: 1500 , dataEncapsulation: false }
+      InMemoryUserService, { delay: 500 , dataEncapsulation: false }
     )
   ];
 

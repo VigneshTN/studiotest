@@ -1,19 +1,19 @@
 <div class="profile__view">
     <div class="row">
-        <div class="col-12 col-md-5 profile__view__aside__left px-0 px-sm-2" [ngClass]="{'slideInLeft': user}">
+        <div class="col-12 col-md-5 profile__view__aside__left px-0 px-sm-2" id="profile-view-left-pane" [ngClass]="{'slideInLeft': user}">
             <div class="row position-relative profile__view__aside__left__user">
                 <img src="../../../assets/images/11583154.jpg" alt="user_profile_image">
             </div>
             <div class="row">
-                <div class="col profile__view__aside__left__content__user">
-                    <div class="row text-center">
-                        <div class="col name my-2">Vignesh Thimma Natarajan</div>
+                <div class="col profile__view__aside__left__content__user" *ngIf="user">
+                    <div class="row text-center" >
+                        <div class="col name my-2">{{user.name}}</div>
                     </div>
                     <div class="row">
                         <div class="col desgination">Application Development Analyst</div>
                     </div>
                     <div class="row">
-                        <div class="col enterpriseId">v.thimma.natarajan</div>
+                        <div class="col enterpriseId">{{user.email}}</div>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,8 @@
             </div>
         </div>
         <div class="col-12 col-md-7 px-0 px-2 mt-0 mt-4">
-            <div class="profile__view__aside__right" [ngClass]="{'slideInLeft': user}">
+            <div class="profile__view__aside__right" id="profile-view-right-pane"
+                    [ngClass]="{'slideInLeft': user}">
                 <div class="content__section card" >
                     <div class="content__section__header">
                         <div class="position-relative">Who is He</div>

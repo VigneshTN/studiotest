@@ -13,6 +13,8 @@ import { CommonHelper } from './helper/common-helper';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { SearchFilterPipe } from './pipe/search-filter.pipe';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -29,12 +31,13 @@ export class SharedModuleConstants {
         CollapseModule.forRoot()
     ];
     static MODULE_COMPONENTS = [
+        SearchFilterPipe,
         AppHeaderComponent,
         AppFooterComponent,
         AppLayoutComponent,
         AppUserSearchComponent,
         AppHomeComponent,
-        ClickOutsideDirective,
+        ClickOutsideDirective
     ];
     static MODULE_PROVIDERS = [
       CommonHelper,
