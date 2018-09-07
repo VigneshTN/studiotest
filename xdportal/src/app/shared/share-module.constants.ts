@@ -14,6 +14,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { SearchFilterPipe } from './pipe/search-filter.pipe';
+import { HighlightSearch } from './pipe/highlight.pipe';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -31,12 +32,13 @@ export class SharedModuleConstants {
         CollapseModule.forRoot()
     ];
     static MODULE_COMPONENTS = [
-        SearchFilterPipe,
         AppHeaderComponent,
         AppFooterComponent,
         AppLayoutComponent,
         AppUserSearchComponent,
         AppHomeComponent,
+        SearchFilterPipe,
+        HighlightSearch,
         ClickOutsideDirective
     ];
     static MODULE_PROVIDERS = [

@@ -19,10 +19,10 @@
           <ng-container *ngFor="let user of users | searchFilter: searchText :searchType.NAME">
             <div *ngIf="(user !== -1)" class="row position-relative cursor-pointer" (click)="navigateToDetail(user)">
               <div class="px-1">
-                <img src="../../../assets/images/11583154.jpg">
+                <img src="../../../assets/images/11583154.jpg" alt="VN">
               </div>
               <div class="px-1 text-left d-relative">
-                <p class="p-0">{{user.name}}</p>
+                <p class="p-0" [innerHTML]="user.name | highlight : searchText"></p>
               </div>
             </div>
             <div *ngIf="(user === -1)" class="search-result__no-match"> No match found</div>
