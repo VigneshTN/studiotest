@@ -6,11 +6,11 @@
 }
 
 .home__baseline{
-    padding-top: 120px;
-    @media @mobileDevicePortait {
+    padding-top: 60px;
+    @media @mobileDevicePortait, @tabDevicePortrait {
         padding-top: 20px;
     }
-    @media @mobileDeviceLandscape{
+    @media @mobileDeviceLandscape, @tabDeviceLandscape{
         padding-top: 50px;
     }
     &__welcome__block{
@@ -25,7 +25,7 @@
         &__text{
             font-size: 3rem;
             color: @xd-orange;
-            text-shadow: -1px 0px 2px #1d1d1d;
+            text-shadow: -1px 0px 2px @xd-black-pale-shadow;
             -webkit-transform: rotate(-6deg);
             transform: rotate(-6deg);
             @media @mobileDevicePortait , @tabDeviceLandscape{
@@ -60,15 +60,15 @@
         }
         &__para{
             font-size: 2rem;
-            color: #fff;
-            font-family: 'JosefinSans-regular';
+            color: @white;
+            .JosefinSans-regular;
             padding-bottom: 10px;
             padding-top: 30px;
             position: relative;
             &:after{
                 content: '';
                 position: absolute;
-                border-bottom: 2px solid white;
+                border-bottom: 2px solid @white;
                 width: 50%;
                 left: 50%;
                 transform: translateX(-50%);
@@ -137,6 +137,66 @@
                 padding-top: 75px;
                 font-size: 2rem;
                 color: #ffb52f;
+            }
+        }
+        @media @mobileDevicePortait, @mobileDeviceLandscape{
+            height: 260px;
+            width: 260px;
+            div{
+                p:first-child{
+                    font-size: 8rem;
+                }
+                p:nth-of-type(2){
+                    padding-top: 60px;
+                }
+            }
+        }
+        @media @tabDevicePortrait{
+            height: 280px;
+            width: 280px;
+        }
+        @media @tabDeviceLandscape{
+            height: 360px;
+            width: 360px;
+        }
+    }
+}
+
+.container__section{
+    margin-top: 4rem;
+    &__header{
+        text-align: left;
+        h3{
+            color: @xd-orange;
+            .Rubik-Medium;
+        }
+    }
+    &__swipper{
+        &__holder{
+            cursor: pointer;
+            margin:0px 44px;
+            max-width: 280px;
+            img{
+                max-height: 280px;
+                border-radius: 4%;
+            }
+        }
+        &__floating__block{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: @xd-tranparent-brown;
+            color:@white;
+            border-bottom-right-radius: 13px;
+            border-bottom-left-radius: 13px;
+            height: 30%;    
+            overflow: hidden;
+            p:nth-of-type(2){
+                font-size: 0.9rem;
+                color: @xd-transparent-yellow;
             }
         }
     }

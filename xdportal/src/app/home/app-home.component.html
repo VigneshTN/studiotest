@@ -1,23 +1,45 @@
-<div class="home home__bg">
-    <div class="container">
-        <div class="row home__baseline">
-            <div class="col-12 col-sm-6">
-                <div class="home__baseline__welcome__block text-center">
-                    <div class="home__baseline__welcome__block__text">Welcome to</div>
-                    <div class="home__baseline__welcome__block__title">XD</div>
-                    <div class="home__baseline__welcome__block__text">Studio</div>
-                    <div>
-                        <p class="home__baseline__welcome__block__para">Digital Expereince Design</p>
+<div class="home">
+    <!-- <div class="home__bg">
+            <div class="container">
+                <div class="row home__baseline">
+                    <div class="col-12 col-sm-6">
+                        <div class="home__baseline__welcome__block text-center">
+                            <div class="home__baseline__welcome__block__text">Welcome to</div>
+                            <div class="home__baseline__welcome__block__title">XD</div>
+                            <div class="home__baseline__welcome__block__text">Studio</div>
+                            <div>
+                                <p class="home__baseline__welcome__block__para">Digital Expereince Design</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 home__baseline__bulletin">
+                        <div class="home__baseline__bulletin__circle">
+                            <div>
+                                <p>47</p>
+                                <p>Innovators</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 home__baseline__bulletin">
-                <div class="home__baseline__bulletin__circle">
-                    <div>
-                        <p>47</p>
-                        <p>Innovators</p>
+        </div> -->
+    <div class="container">
+        <div class="container__section">
+            <div class="container__section__header">
+                <h3>Our Innovators are</h3>
+            </div>
+            <div class="container__section__swipper">
+                <owl-carousel [options]="{items: 3, dots: false, navigation: false}" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                    <div *ngFor="let user of users">
+                        <div class="position-relative container__section__swipper__holder" [routerLink]="['/members',user.id,'employee']">
+                            <img src="../../assets/images/11583154.jpg">
+                            <div class="container__section__swipper__floating__block">
+                                <p>Vignesh Thimma Natarajan</p>
+                                <p>{{'Application Devlopment Analyst Associate Manager'| ellipsis : 50}}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </owl-carousel>
             </div>
         </div>
     </div>

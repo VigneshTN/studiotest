@@ -7,7 +7,7 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
 import { RouterModule } from '@angular/router';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonHelper } from './helper/common-helper';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -15,6 +15,8 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { SearchFilterPipe } from './pipe/search-filter.pipe';
 import { HighlightSearch } from './pipe/highlight.pipe';
+import { EllipsisPipe } from './pipe/ellipsis';
+import { OwlModule } from 'ngx-owl-carousel';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -22,30 +24,32 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 export class SharedModuleConstants {
-    static MODULE_IMPORTS = [
-        RouterModule,
-        CommonModule,
-        FormsModule,
-        PerfectScrollbarModule,
-        Ng2DeviceDetectorModule.forRoot(),
-        BsDropdownModule.forRoot(),
-        CollapseModule.forRoot()
-    ];
-    static MODULE_COMPONENTS = [
-        AppHeaderComponent,
-        AppFooterComponent,
-        AppLayoutComponent,
-        AppUserSearchComponent,
-        AppHomeComponent,
-        SearchFilterPipe,
-        HighlightSearch,
-        ClickOutsideDirective
-    ];
-    static MODULE_PROVIDERS = [
-      CommonHelper,
-      {
-        provide: PERFECT_SCROLLBAR_CONFIG,
-        useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-      }
-    ];
+  static MODULE_IMPORTS = [
+    RouterModule,
+    CommonModule,
+    FormsModule,
+    OwlModule,
+    PerfectScrollbarModule,
+    Ng2DeviceDetectorModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    CollapseModule.forRoot()
+  ];
+  static MODULE_COMPONENTS = [
+    AppHeaderComponent,
+    AppFooterComponent,
+    AppLayoutComponent,
+    AppUserSearchComponent,
+    AppHomeComponent,
+    SearchFilterPipe,
+    EllipsisPipe,
+    HighlightSearch,
+    ClickOutsideDirective
+  ];
+  static MODULE_PROVIDERS = [
+    CommonHelper,
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ];
 }
