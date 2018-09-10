@@ -16,7 +16,15 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { SearchFilterPipe } from './pipe/search-filter.pipe';
 import { HighlightSearch } from './pipe/highlight.pipe';
 import { EllipsisPipe } from './pipe/ellipsis';
-import { OwlModule } from 'ngx-owl-carousel';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { ImgSrcDirective } from './directives/no-image.directive';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -28,7 +36,7 @@ export class SharedModuleConstants {
     RouterModule,
     CommonModule,
     FormsModule,
-    OwlModule,
+    SwiperModule,
     PerfectScrollbarModule,
     Ng2DeviceDetectorModule.forRoot(),
     BsDropdownModule.forRoot(),
@@ -43,13 +51,18 @@ export class SharedModuleConstants {
     SearchFilterPipe,
     EllipsisPipe,
     HighlightSearch,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    ImgSrcDirective
   ];
   static MODULE_PROVIDERS = [
     CommonHelper,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
     }
   ];
 }

@@ -32,7 +32,8 @@
     "font-awesome": "^4.7.0",
     "ng2-device-detector": "^1.0.1",
     "angular-in-memory-web-api": "^0.6.0",
-    "ngx-perfect-scrollbar": "^6.3.1"
+    "ngx-perfect-scrollbar": "^6.3.1",
+    "ngx-swiper-wrapper": "^6.4.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",

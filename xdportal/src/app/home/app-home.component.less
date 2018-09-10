@@ -192,13 +192,31 @@
             color:@white;
             border-bottom-right-radius: 13px;
             border-bottom-left-radius: 13px;
-            height: 30%;    
-            overflow: hidden;
             p:nth-of-type(2){
                 font-size: 0.9rem;
                 color: @xd-transparent-yellow;
             }
         }
+    }
+}
+
+.swiper-carousel .swiper-container {
+    .swiper-button-prev,
+    .swiper-button-next {
+        background-image: none;
+        font: normal normal normal 16px/1 FontAwesome;
+        height: auto;
+        top: 55%;
+        right:0!important;
+    }
+    .swiper-button-prev:before {
+        content: "\f053";
+    }
+    .swiper-button-next:before {
+        content: "\f054";
+    }
+    .swiper-button-next {
+        text-align: right;
     }
 }
 
