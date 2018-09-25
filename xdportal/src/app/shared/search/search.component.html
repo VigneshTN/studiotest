@@ -19,7 +19,8 @@
           <ng-container *ngFor="let user of users | searchFilter: searchText :searchType.NAME">
             <div *ngIf="(user !== -1)" class="row position-relative cursor-pointer" (click)="navigateToDetail(user)">
               <div class="px-1">
-                <img src="../../../assets/images/11583154.jpg" alt="VN">
+                <img [imgSrc]="user.imageUrl" 
+                    [imgConfig]="imgConfig" [imgText]="user.name" alt="image">
               </div>
               <div class="px-1 text-left d-relative">
                 <p class="p-0" [innerHTML]="user.name | highlight : searchText"></p>

@@ -24,7 +24,7 @@
             </div>
         </div>
     <div class="container">
-        <div class="container__section mt-3">
+        <div class="container__section mt-5">
             <div class="container__section__header">
                 <h3>Our Innovators are</h3>
             </div>
@@ -32,7 +32,7 @@
                 <swiper [config]="config" [index]="0" >
                     <div *ngFor="let user of users" class="swiper-slide">
                         <div class="position-relative container__section__swipper__holder" [routerLink]="['/members',user.id,'employee']">
-                            <img [imgSrc]="user.imageUrl">
+                            <img [imgSrc]="user.imageUrl" [imgConfig]="imgConfig">
                             <div class="container__section__swipper__floating__block">
                                 <p>{{user.name}}</p>
                                 <p>{{'Application Devlopment Analyst Associate Manager'| ellipsis : 50}}</p>

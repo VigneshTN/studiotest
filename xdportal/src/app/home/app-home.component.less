@@ -166,6 +166,9 @@
     margin-top: 4rem;
     &__header{
         text-align: left;
+        margin-bottom: 2.5rem;
+        font-size: 2.5rem;
+        margin-top: 2rem;   
         h3{
             color: @xd-orange;
             .Rubik-Medium;
@@ -176,6 +179,8 @@
             cursor: pointer;
             margin:0px 44px;
             max-width: 280px;
+            background-color: @xd-swipper-brown-bg;
+            border-radius: 5%;
             img{
                 max-height: 280px;
                 border-radius: 4%;
@@ -187,6 +192,7 @@
             left: 0;
             right: 0;
             width: 100%;
+            z-index: 5;
             padding: 10px;
             background-color: @xd-tranparent-brown;
             color:@white;
@@ -200,7 +206,7 @@
     }
 }
 
-.swiper-carousel .swiper-container {
+:host ::ng-deep .swiper-container {
     .swiper-button-prev,
     .swiper-button-next {
         background-image: none;
@@ -227,5 +233,16 @@
         background-size: 100%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 

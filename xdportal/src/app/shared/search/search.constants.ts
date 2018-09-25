@@ -1,3 +1,3 @@
 export class SearchConstants {
-    public static Search = 'search';
+    public static Search = 'Search';
 }

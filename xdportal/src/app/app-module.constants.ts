@@ -10,6 +10,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InterceptService } from './shared/utils/http-interceptor';
 import { GlobalErrorHandlerService } from './shared/utils/global-error-handler';
 import { ErrorHandler } from '../../node_modules/@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 export class AppModuleConstants {

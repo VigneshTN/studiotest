@@ -36,6 +36,21 @@
                 font-size: 1.6rem;
                 .PatuaOne-Regular; 
             }
+            &__name{
+                span{
+                    position: absolute;
+                    cursor: pointer;
+                    bottom: 2px;
+                    padding-left: 8px;
+                    i{
+                        color:@xd-orange-icon-theme;
+                        font-size: 23px;
+                        &:hover{
+                            color: @xd-tranparent-brown;
+                        }
+                    }   
+                }
+            }
         }
         &__content__skill{
             line-height: 1.8rem;
@@ -76,6 +91,7 @@
             padding: 0px 5px 0px 0px;
             font-weight: 600;
             font-size: 0.95rem;
+            color: @xd-brown-sub-headers;
         }
         p{
             font-weight: 500;
@@ -90,4 +106,147 @@
 .row{
     margin-left: 0%;
     margin-right: 0%;
+}
+
+:host ::ng-deep .progress-bar{
+    background-color:@xd-tranparent-brown;
+}
+
+
+/***********Seating Arrangement CSS Styles **************/
+.xd__studio .seat{
+	background:url('../../../assets/images/seat-icon-new.png') no-repeat center ;
+	min-height: 42px;
+	position: relative;
+    left: 11px;
+ }
+ .xd__studio .desk{
+	background:url('../../../assets/images/desk-icon-new.png') no-repeat center ;
+	min-height: 35px;
+ }
+ .xd__studio .desk.desk--right{
+	background:url('../../../assets/images/desk-icon-new.png') no-repeat center ;
+	transform: scaleX(-1);
+ }
+ .xd__studio .seat.seat--left{
+	background:url('../../../assets/images/seat-icon-new.png') no-repeat center ;
+    transform: scaleX(-1);
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    left: -10px;
+ }
+ .xd__studio:nth-child(5), .xd__studio:nth-child(9){
+    padding-bottom: 40px;
+ }
+ .xd__studio .xd__studio__entry{
+	height: 38px;
+    width: 70px;
+    border: 1px solid #80808075;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    position: absolute;
+    left: -25px;
+    bottom: 51px;
+ }
+ .xd__studio .xd__studio__entry p {
+	font-size:10px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+ }
+ .xd__studio .xd__studio__entry span i{
+ 	position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+ }
+ .xd__studio .xd__studio__entry span i:before{
+ 	color:#808080a1;
+ }
+ .break__out{
+	width: 93%;
+	border:1px solid #80808075;
+ }
+ .indicator{
+	font-size: 12px;
+    font-weight: 500;
+ }
+ .indicator span{
+	display: inline-block;
+    min-height: 10px;
+    min-width: 10px;
+    border: 2px solid rgb(245, 6, 6);
+ }
+ .xd__studio > .row > div:first-child{
+	border-right: 1px solid #80808075;
+ }
+ 
+
+ .xd__studio > .row > div:nth-of-type(2) > .row > div:nth-of-type(3) > .row{
+	margin-top: 0.5rem;
+ }
+ 
+ 
+ /******** Animations ************/
+ .draw {
+  overflow: hidden;
+  position: relative;
+}
+.draw::before, .draw::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  border: 2px solid transparent;
+  width: 0;
+  height: 0;
+}
+.draw::before {
+  top: 0;
+  left: 0;
+  border-top-color: rgb(245, 6, 6);
+  border-right-color: rgb(245, 6, 6);
+  animation: border 2s infinite;
+}
+.draw::after {
+  bottom: 0;
+  right: 0;
+  animation: border 2s 1s infinite, borderColor 2s 1s infinite;
+}
+
+@keyframes border {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  25% {
+    width: 100%;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+  }
+}
+@keyframes borderColor {
+  0% {
+    border-bottom-color: rgb(245, 6, 6);
+    border-left-color:rgb(245, 6, 6);
+  }
+  50% {
+    border-bottom-color: rgb(245, 6, 6);
+    border-left-color: rgb(245, 6, 6);
+  }
+  51% {
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  100% {
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
 }

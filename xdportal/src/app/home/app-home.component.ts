@@ -4,6 +4,8 @@ import { User } from '../user/interface/user.interface';
 import { Subscription } from 'rxjs';
 import { AppHomeComponentConstants } from './app-home.constants';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { NoImageConfig } from '../shared/interface/no-image.interface';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-home',
@@ -14,24 +16,19 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 export class AppHomeComponent implements OnInit, OnDestroy {
     users: User[];
     homeComponentSubscription: Subscription;
-    public slides = [
-        'First slide',
-        'Second slide',
-        'Third slide',
-        'Fourth slide',
-        'Fifth slide',
-        'Sixth slide'
-    ];
-    public config: SwiperConfigInterface = {
+    config: SwiperConfigInterface = {
         direction: 'horizontal',
         observer: true,
         slidesPerView: 3,
         navigation: true,
         initialSlide: 0,
         loop: true,
+        autoplay: {
+            delay: 1500,
+        },
         breakpoints: {
             1200: {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 spaceBetween: 10
             },
             992: {
@@ -52,16 +49,24 @@ export class AppHomeComponent implements OnInit, OnDestroy {
             }
         }
     };
+    imgConfig: NoImageConfig = {
+        containerHeight: 250,
+        containerWidth: 250,
+        textFontSize: 100,
+        textLineHeight: 250,
+        letterSpacing: 10,
+        containerBottom: 0,
+        parentContainerPadding: 10
+    };
 
-
-    constructor(private _userService: UserService) {
+    constructor(private _userService: UserService,
+        private fb: FormBuilder) {
 
     }
 
     ngOnInit() {
         this.getUsers();
     }
-
 
     /**
      * Get Users

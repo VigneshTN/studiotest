@@ -4,11 +4,11 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { AppHomeComponent } from '../home/app-home.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
-import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { CollapseModule, BsDropdownModule, ModalModule } from 'ngx-bootstrap';
 import { Ng2DeviceDetectorModule } from 'ng2-device-detector';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonHelper } from './helper/common-helper';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -20,6 +20,8 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ImgSrcDirective } from './directives/no-image.directive';
+import { PopoverModule } from 'ngx-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -36,10 +38,14 @@ export class SharedModuleConstants {
     RouterModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SwiperModule,
     PerfectScrollbarModule,
+    ModalModule.forRoot(),
+    PopoverModule.forRoot(),
     Ng2DeviceDetectorModule.forRoot(),
     BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     CollapseModule.forRoot()
   ];
   static MODULE_COMPONENTS = [

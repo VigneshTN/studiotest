@@ -1,13 +1,19 @@
 <div class="profile__view">
     <div class="row">
         <div class="col-12 col-md-5 profile__view__aside__left px-0 px-sm-2" id="profile-view-left-pane" [ngClass]="{'slideInLeft': user}">
-            <div class="row position-relative profile__view__aside__left__user">
-                <img src="../../../assets/images/11583154.jpg" alt="user_profile_image">
+            <div class="row position-relative profile__view__aside__left__user" *ngIf="user">
+                <img [imgSrc]="user.imageUrl" alt="user_profile_image" [imgConfig]="imgConfig" [imgText]="user.name">
             </div>
             <div class="row">
                 <div class="col profile__view__aside__left__content__user" *ngIf="user">
-                    <div class="row text-center" >
-                        <div class="col name my-2">{{user.name}}</div>
+                    <div class="row text-center">
+                        <div class="col name my-2 position-relative profile__view__aside__left__content__user__name">
+                            {{user.name}}
+                            <span>
+                                <i class="fa fa-map-marker" 
+                                    (click)="openSeatingModal(seatingTemplate)"></i>
+                            </span>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col desgination">Application Development Analyst</div>
@@ -66,9 +72,8 @@
             </div>
         </div>
         <div class="col-12 col-md-7 px-0 px-2 mt-0 mt-4">
-            <div class="profile__view__aside__right" id="profile-view-right-pane"
-                    [ngClass]="{'slideInLeft': user}">
-                <div class="content__section card" >
+            <div class="profile__view__aside__right" id="profile-view-right-pane" [ngClass]="{'slideInLeft': user}">
+                <div class="content__section card">
                     <div class="content__section__header">
                         <div class="position-relative">Who is He</div>
                     </div>
@@ -150,3 +155,452 @@
         </div>
     </div>
 </div>
+
+<!-- SEATING MODEL TEMPLATE -->
+<ng-template #seatingTemplate>
+    <div class="modal-body">
+        <div class="col-12 mt-3 text-center">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-5 text-center px-0">
+                    <div class="break__out">
+                        Break out area
+                    </div>
+                </div>
+                <div class="col-4 text-center indicator">
+                    <div>
+                        <span></span> Look at this mark to locate the seat
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6 mt-3">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12 xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12 xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="xd__studio__entry">
+                        <p>Entry Here</p>
+                        <span>
+                            <i class="fa fa-arrow-right"></i>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="xd__studio__entry">
+                        <p>Entry Here</p>
+                        <span>
+                            <i class="fa fa-arrow-right"></i>
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left" data-t-seat="404"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left " data-t-seat="403"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left" data-t-seat="402"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left" data-t-seat="401"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-12  xd__studio">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="row">
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-4 seat seat--left" data-t-seat="400"></div>
+                            </div>
+                        </div>
+                        <div class="col-4 ml-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-2 seat"></div>
+                                <div class="col-2 desk"></div>
+                                <div class="col-2 desk desk--right"></div>
+                                <div class="col-2 seat seat--left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </div>
+</ng-template>

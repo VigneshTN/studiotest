@@ -7,6 +7,7 @@ import { SearchConstants } from './search.constants';
 import { UserService } from '../../user/service/user.service';
 import { SearchTypes } from '../enums/search-types';
 import { Router } from '@angular/router';
+import { NoImageConfig } from '../interface/no-image.interface';
 
 
 @Component({
@@ -23,6 +24,15 @@ export class AppUserSearchComponent implements OnInit, OnDestroy {
     users: User[] = [];
     searchText: string = '';
     searchType: any =  SearchTypes;
+    imgConfig: NoImageConfig = {
+        containerHeight: 30,
+        containerWidth: 30,
+        textFontSize: 10,
+        textLineHeight: 30,
+        letterSpacing: 2,
+        containerBottom: 0,
+        parentContainerPadding: 0
+    };
 
     constructor(private _commonHelper: CommonHelper
         , private _userService: UserService
